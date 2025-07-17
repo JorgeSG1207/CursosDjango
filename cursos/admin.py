@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Curso
+from .models import Curso, Actividad
 
 class CursoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'nivel', 'precio', 'duracion', 'disponible', 'fecha_creacion')
@@ -28,3 +28,19 @@ class CursoAdmin(admin.ModelAdmin):
         return field
 
 admin.site.register(Curso, CursoAdmin)
+
+class ActividadAdmin(admin.ModelAdmin):
+    list_display = ('clave', 'nombre', 'curso', 'fecha_creacion')
+    list_filter = ('curso',)
+    search_fields = ('clave', 'nombre', 'descripcion')
+    fieldsets = (
+        ('Información Básica', {
+            'fields': ('clave', 'curso', 'nombre')
+        }),
+        ('Descripción', {
+            'fields': ('descripcion',),
+            'description': 'Ingresa todos los detalles de la actividad'
+        }),
+    )
+    
+admin.site.register(Actividad, ActividadAdmin)  

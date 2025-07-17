@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Cursos{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <h1 class="text-center mb-4">Lista de Cursos</h1>
+    <div class="text-end mb-3">
+        <a href="{% url 'nuevo_curso' %}" class="btn btn-success">Agregar Curso</a>
+    </div>
+    <div class="row">
+        {% for curso in cursos %}
+            <div class="col-md-4">
+                <div class="card curso-card">
+                    {% if curso.imagen %}
+                        <img src="{{ curso.imagen.url }}" class="card-img-top" alt="Imagen del curso">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ curso.nombre }}</h5>
+                        <p class="card-text">{{ curso.descripcion|truncatechars:100 }}</p>
+                        <p class="fw-bold">${{ curso.precio }}</p>
+                        <a href="{% url 'editar_curso' curso.id %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'eliminar_curso' curso.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">No hay cursos disponibles.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

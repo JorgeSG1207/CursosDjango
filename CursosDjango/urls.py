@@ -16,9 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from contenido import views
+from cursos import views as views_cursos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('contenido.urls')),
-    path('cursos/', include('cursos.urls')), 
+    path('', views.inicio, name='inicio'),
+    path('cursos/', views.cursos, name='cursos'),
+    path('contacto/', views.contacto, name='contacto'),
+    path('crud/', views_cursos.lista_cursos, name='lista_cursos'),
+    path('nuevo/', views_cursos.nuevo_curso, name='nuevo_curso'),
+    path('editar/<int:id>/', views_cursos.editar_curso, name='editar_curso'),
+    path('eliminar/<int:id>/', views_cursos.eliminar_curso, name='eliminar_curso'),
 ]

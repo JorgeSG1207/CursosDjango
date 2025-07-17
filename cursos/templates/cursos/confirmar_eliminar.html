@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block titulo %}Confirmar Eliminación{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h3>Confirmar Eliminación</h3>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Alerta de confirmación -->
+                <div class="alert alert-danger">
+                    <h4 class="alert-heading">¿Estás seguro?</h4>
+                    <p>Estás a punto de eliminar el curso: <strong>{{ curso.nombre }}</strong></p>
+                    <hr>
+                    <p class="mb-0">Esta acción no se puede deshacer.</p>
+                </div>
+                
+                <!-- Botones de acción -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-danger btn-lg mx-2">
+                        <i class="bi bi-trash-fill"></i> Sí, Eliminar
+                    </button>
+                    <a href="{% url 'lista_cursos' %}" class="btn btn-secondary btn-lg mx-2">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
