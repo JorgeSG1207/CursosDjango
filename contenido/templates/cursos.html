@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Nuestros Cursos{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Nuestros Cursos</h1>
+    
+    <div class="row">
+        {% for curso in cursos %}
+        <div class="col-md-4">
+            <div class="card curso-card">
+                <div class="card-header bg-primary text-white">
+                    {{ curso.categoria }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ curso.nombre }}</h5>
+                    <p class="card-text">{{ curso.descripcion }}</p>
+                    <a href="{% url 'contacto' %}" class="btn btn-outline-primary">Más información</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

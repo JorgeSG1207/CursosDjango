@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<!-- Sección Hero -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Bienvenido a CursosDjango</h1>
+        <p class="lead">Aprende programación con nuestros cursos especializados</p>
+        <a href="{% url 'cursos' %}" class="btn btn-light btn-lg mt-3">Explora nuestros cursos</a>
+    </div>
+</section>
+
+<!-- Sección de características -->
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="bi bi-laptop" style="font-size: 2rem; color: #6e8efb;"></i>
+                    <h3 class="card-title mt-3">Cursos Actualizados</h3>
+                    <p class="card-text">Contenido relevante y actualizado constantemente.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="bi bi-people" style="font-size: 2rem; color: #a777e3;"></i>
+                    <h3 class="card-title mt-3">Aprendizaje Comunitario</h3>
+                    <p class="card-text">Únete a nuestra comunidad de estudiantes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="bi bi-patch-check" style="font-size: 2rem; color: #4ecca3;"></i>
+                    <h3 class="card-title mt-3">Certificaciones</h3>
+                    <p class="card-text">Obtén certificados al completar los cursos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
