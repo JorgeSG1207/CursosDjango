@@ -11,7 +11,7 @@ def nuevo_curso(request):
         form = CursoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('lista_cursos')
+            return redirect('cursos')
     else:
         form = CursoForm()
     return render(request, 'cursos/formulario.html', {'form': form})
@@ -22,7 +22,7 @@ def editar_curso(request, id):
         form = CursoForm(request.POST, request.FILES, instance=curso)
         if form.is_valid():
             form.save()
-            return redirect('lista_cursos')
+            return redirect('cursos')
     else:
         form = CursoForm(instance=curso)
     return render(request, 'cursos/formulario.html', {'form': form})
@@ -31,7 +31,7 @@ def eliminar_curso(request, id):
     curso = get_object_or_404(Curso, pk=id)
     if request.method == 'POST':
         curso.delete()
-        return redirect('lista_cursos')
+        return redirect('cursos')
     return render(request, 'cursos/confirmar_eliminar.html', {'curso': curso})
 
 def contacto_view(request):

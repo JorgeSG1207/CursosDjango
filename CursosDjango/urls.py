@@ -1,8 +1,10 @@
-
 from django.contrib import admin
 from django.urls import path, include
 from contenido import views
 from cursos import views as views_cursos
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,4 +15,4 @@ urlpatterns = [
     path('nuevo/', views_cursos.nuevo_curso, name='nuevo_curso'),
     path('editar/<int:id>/', views_cursos.editar_curso, name='editar_curso'),
     path('eliminar/<int:id>/', views_cursos.eliminar_curso, name='eliminar_curso'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
