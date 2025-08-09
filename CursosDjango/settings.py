@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import pymysql
+pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-46nvq451z8k*t9@6(#x#^sj4hod4#ew@$2qg=%9ui9d)k##iju'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['UTM221084TI.pythonanywhere.com', 'localhost','127.0.0.1']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -144,10 +146,10 @@ WSGI_APPLICATION = 'CursosDjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cursosdjango',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'UTM221084TI$cursos',
+        'USER': 'UTM221084TI',
+        'PASSWORD': 'Dap84836Py',
+        'HOST': 'UTM221084TI.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
