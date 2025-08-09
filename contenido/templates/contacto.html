@@ -23,11 +23,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="curso" class="form-label">Curso de interés</label>
-                            <select class="form-select" id="curso" name="curso">
+                            <select class="form-select" id="curso" name="curso" required>
                                 <option selected disabled>Selecciona un curso</option>
-                                <option value="python">Python Básico</option>
-                                <option value="django">Django</option>
-                                <option value="sql">SQL</option>
+                                {% for curso in cursos %}
+                                    <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="mb-3">

@@ -33,3 +33,7 @@ def eliminar_curso(request, id):
         curso.delete()
         return redirect('lista_cursos')
     return render(request, 'cursos/confirmar_eliminar.html', {'curso': curso})
+
+def contacto_view(request):
+    cursos = Curso.objects.all()
+    return render(request, 'contacto.html', {'cursos': cursos})

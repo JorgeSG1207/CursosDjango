@@ -1,19 +1,4 @@
-"""
-URL configuration for CursosDjango project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
 from contenido import views
@@ -21,10 +6,10 @@ from cursos import views as views_cursos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', views.inicio, name='inicio'),
-    path('cursos/', views.cursos, name='cursos'),
     path('contacto/', views.contacto, name='contacto'),
-    path('crud/', views_cursos.lista_cursos, name='lista_cursos'),
+    path('cursos/', views_cursos.lista_cursos, name='cursos'),
     path('nuevo/', views_cursos.nuevo_curso, name='nuevo_curso'),
     path('editar/<int:id>/', views_cursos.editar_curso, name='editar_curso'),
     path('eliminar/<int:id>/', views_cursos.eliminar_curso, name='eliminar_curso'),
